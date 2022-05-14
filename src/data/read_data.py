@@ -9,12 +9,14 @@ def read_data(path: str):
         df = pd.read_csv(path, sep=",", encoding="utf_8")
     except:
         print("Error reading data")
+        return
 
     try:
         df["loan_type"] = df["status"].apply(lambda x: 0 if x in ["A", "C"] else 1)
         df.drop(["status"], axis=1, inplace=True)
     except:
         print("Error converting data")
+        return
 
     df = df.fillna(method = 'backfill')
 
