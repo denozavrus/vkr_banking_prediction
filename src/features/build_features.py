@@ -9,6 +9,9 @@ def build_features(df: pd.DataFrame):
     df["payments/salary"] = df["payments"] / df["average_salary"]
     df["age * amount"] = df["age"] * df["amount"]
     df["age * salary"] = df["age"] * df["average_salary"]
+    df["age * outcome"] = df["age"] * df["month_outcome"]
+    df["age * income"] = df["age"] * df["month_income"]
+    df["diff"] = df["month_income"] - df["month_outcome"]
 
     def age_group(x):
         if x < 24:

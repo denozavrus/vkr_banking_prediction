@@ -10,8 +10,12 @@ warnings.filterwarnings("ignore")
 @click.option('--eval', '--e', default=False, is_flag=True)
 @click.argument('path', default='data/raw/dataset.txt')
 def cli(train, eval, path):
-    import os
-    print(os.getcwd())
+    """
+    Function to train logit on banking data
+    :param train: flag to train model. Can be passed first time on each dataset to create model
+    :param eval: flag to eval model. Builds analytics on the model accuracy
+    :param path: path to dataset. default is data/raw/dataset.txt
+    """
 
     df = src.read_data(path)
     df = src.build_features(df)

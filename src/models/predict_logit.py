@@ -27,6 +27,7 @@ def predict_logit(x_test, y_test=None):
 
         display = PrecisionRecallDisplay.from_predictions(y_test, y_score, name="Logit")
         _ = display.ax_.set_title("2-class Precision-Recall curve")
+        plt.show()
 
         print(
             f'F1 score for logit model is {f1_score(y_test, predictions, average="weighted")}'
